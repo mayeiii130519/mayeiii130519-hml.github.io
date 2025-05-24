@@ -4,9 +4,118 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>張鈺玫的小天地</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    body {
+      font-family: "Helvetica Neue", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fdfdfd;
+    }
+
+    header {
+      background-color: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .my-photo {
+      width: 150px;
+      border-radius: 50%;
+      margin-top: 10px;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    footer {
+      background-color: #eee;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+
+    /* 圖片輪播 */
+    .slider {
+      position: relative;
+      max-width: 700px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      display: none;
+      flex-shrink: 0;
+      background-color: #fff;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+      border-bottom: 1px solid #eee;
+    }
+
+    .caption {
+      padding: 15px;
+      text-align: center;
+      background-color: #fafafa;
+      border-top: 1px solid #ddd;
+    }
+
+    .caption h3, .caption p {
+      margin: 0.5em 0;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      background-color: rgba(255,255,255,0.7);
+      border: none;
+      cursor: pointer;
+      padding: 8px 12px;
+      z-index: 2;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    .personal-project {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .personal-project h2 {
+      font-size: 1.5em;
+      font-weight: bold;
+      text-align: left;
+      margin: 40px 0 20px 0;
+      padding-left: 0;
+    }
+  </style>
 </head>
 <body>
+
   <header>
     <h1>張鈺玫的小天地</h1>
     <div class="profile-image">
@@ -22,27 +131,48 @@
 
     <section>
       <h2>興趣愛好</h2>
-      <p>我有一個喜歡十年的偶像"少女時代"，其中我最喜歡的是太妍，是看到會讓我流淚的人。我也喜歡運動、唱歌跟聽音樂，我也很喜歡聽周杰倫的歌，每次都讓我深入其境！</p>
+      <p>我有一個喜歡十年的偶像「少女時代」，其中我最喜歡的是太妍，是看到會讓我流淚的人。我也喜歡運動、唱歌跟聽音樂，我也很喜歡聽周杰倫的歌，每次都讓我深入其境！</p>
     </section>
 
     <section>
       <h2>作品集</h2>
-      <div class="portfolio-grid">
-        <div class="portfolio-item">
-          <img src="作品1.png" alt="作品一">
-          <h3>臉的幾個點</h3>
-          <p>這是我的第一個作品，展示了我對網頁設計的熱情。</p>
+      <div class="slider">
+        <div class="slides">
+          <div class="slide active">
+            <img src="作品1.png" alt="作品一">
+            <div class="caption">
+              <h3>臉的幾個點</h3>
+              <p>這是我的第一個作品，展示了我對網頁設計的熱情。</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="作品2.png" alt="作品二">
+            <div class="caption">
+              <h3>手軸彎曲跟舉起</h3>
+              <p>這是我在課堂上完成的專案，使用 HTML 和 CSS 製作。</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="PHONE.png" alt="作品三">
+            <div class="caption">
+              <h3>物品識別</h3>
+              <p>這個作品展示了我對互動網頁的初步嘗試。</p>
+            </div>
+          </div>
         </div>
-        <div class="portfolio-item">
-          <img src="作品2.png" alt="作品二">
-          <h3>手軸彎曲跟舉起</h3>
-          <p>這是我在課堂上完成的專案，使用 HTML 和 CSS 製作。</p>
-        </div>
-        <div class="portfolio-item">
-          <img src="PHONE.png" alt="作品三">
-          <h3>物品識別</h3>
-          <p>這個作品展示了我對互動網頁的初步嘗試。</p>
-        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+
+      <div class="personal-project">
+        <h2>個人網站</h2>
+        <iframe src="https://jaymusic-f6emgdl7cf3vs3pht63sbl.streamlit.app/"
+                width="100%"
+                height="600"
+                frameborder="0"
+                allowfullscreen
+                style="border: 1px solid #ccc; border-radius: 10px;">
+        </iframe>
       </div>
     </section>
   </main>
@@ -51,11 +181,32 @@
     <p>© 2024 張鈺玫</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const nextBtn = document.querySelector('.next');
+    const prevBtn = document.querySelector('.prev');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+    }
+
+    nextBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    });
+  </script>
+
 </body>
 </html>
 
-  
-  <script src="script.js"></script>
-</body>
-</html>
