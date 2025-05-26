@@ -38,9 +38,9 @@
       margin-top: 30px;
     }
 
-    /* 圖片輪播 */
     .slider {
       position: relative;
+      width: 100%;
       max-width: 700px;
       margin: 40px auto;
       overflow: hidden;
@@ -50,36 +50,48 @@
 
     .slides {
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      flex-direction: column;
+      width: 100%;
     }
 
     .slide {
-      min-width: 100%;
-      box-sizing: border-box;
-      display: none;
+      width: 100%;
       flex-shrink: 0;
-      background-color: #fff;
+      visibility: hidden;
+      height: 0;
+      transition: visibility 0.3s ease, height 0.3s ease;
+      overflow: hidden;
     }
 
     .slide.active {
-      display: block;
+      visibility: visible;
+      height: auto;
     }
 
     .slide img {
       width: 100%;
       height: auto;
+      object-fit: contain;
+      display: block;
       border-bottom: 1px solid #eee;
     }
 
     .caption {
-      padding: 15px;
-      text-align: center;
+      padding: 20px;
       background-color: #fafafa;
       border-top: 1px solid #ddd;
+      text-align: center;
+      word-break: break-word;
+      line-height: 1.6;
     }
 
-    .caption h3, .caption p {
-      margin: 0.5em 0;
+    .caption h3 {
+      margin-top: 0.5em;
+      margin-bottom: 0.3em;
+    }
+
+    .caption p {
+      margin: 0;
     }
 
     .prev, .next {
@@ -110,7 +122,6 @@
       font-weight: bold;
       text-align: left;
       margin: 40px 0 20px 0;
-      padding-left: 0;
     }
   </style>
 </head>
@@ -131,7 +142,8 @@
 
     <section>
       <h2>興趣愛好</h2>
-      <p>我有一個喜歡十年的偶像「少女時代」，其中我最喜歡的是太妍，是看到會讓我流淚的人。我也喜歡運動、唱歌跟聽音樂，我也很喜歡聽周杰倫的歌，每次都讓我深入其境！</p>
+      <p>我有一個喜歡十年的偶像「少女時代」，其中我最喜歡的是太妍，是看到會讓我流淚的人。
+        我也喜歡運動、唱歌跟聽音樂，我也很喜歡聽周杰倫的歌，每次都讓我深入其境！</p>
     </section>
 
     <section>
@@ -141,22 +153,22 @@
           <div class="slide active">
             <img src="作品1.png" alt="作品一">
             <div class="caption">
-              <h3>臉的幾個點</h3>
-              <p>這是我的第一個作品，展示了我對網頁設計的熱情。</p>
+              <h3>臉部偵測</h3>
+              <p>這項實作有點像是我們平常在相機看到的臉部追蹤功能，使用幾個顏色的點追蹤我們的眼睛、鼻子，最困難的是再加上一個點在鼻子上，還有把點換顏色，都非常具有挑戰性。</p>
             </div>
           </div>
           <div class="slide">
             <img src="作品2.png" alt="作品二">
             <div class="caption">
               <h3>手軸彎曲跟舉起</h3>
-              <p>這是我在課堂上完成的專案，使用 HTML 和 CSS 製作。</p>
+              <p>同樣是偵測動作，能夠追蹤我們手軸彎曲的角度以及次數，如果能夠實際應用到運動上面進行次數計算，感覺會相當有趣。</p>
             </div>
           </div>
           <div class="slide">
             <img src="PHONE.png" alt="作品三">
             <div class="caption">
               <h3>物品識別</h3>
-              <p>這個作品展示了我對互動網頁的初步嘗試。</p>
+              <p>我們使用了 Google 的 Teachable Machine，讓我們能夠快速地讓 AI 識別物品，以利我們撰寫程式碼。</p>
             </div>
           </div>
         </div>
@@ -166,13 +178,11 @@
 
       <div class="personal-project">
         <h2>個人網站</h2>
-        <iframe src="https://jaymusic-f6emgdl7cf3vs3pht63sbl.streamlit.app/"
-                width="100%"
-                height="600"
-                frameborder="0"
-                allowfullscreen
-                style="border: 1px solid #ccc; border-radius: 10px;">
-        </iframe>
+        <p style="text-align: center; font-size: 16px;">
+          👉 <a href="https://jaymusic-f6emgdl7cf3vs3pht63sbl.streamlit.app/" target="_blank" style="color: #3366cc; text-decoration: none;">
+            點我前往我的情緒點歌網站 🎧
+          </a>
+        </p>
       </div>
     </section>
   </main>
@@ -209,4 +219,6 @@
 
 </body>
 </html>
+
+
 
