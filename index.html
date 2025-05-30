@@ -1,225 +1,310 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>張鈺玫的小天地</title>
   <style>
-    body {
-      font-family: "Helvetica Neue", sans-serif;
+
+我想在最下方放我的個人網站，首頁的選單也幫我加入"WEBSITE"
+
+    * {
       margin: 0;
       padding: 0;
-      background-color: #fdfdfd;
+      box-sizing: border-box;
     }
 
-    header {
+    body {
+      font-family: "Helvetica Neue", sans-serif;
       background-color: #f2f2f2;
-      padding: 20px;
-      text-align: center;
     }
 
-    .my-photo {
-      width: 150px;
-      border-radius: 50%;
-      margin-top: 10px;
-    }
-
-    main {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    footer {
-      background-color: #eee;
-      text-align: center;
-      padding: 10px;
-      font-size: 14px;
-      margin-top: 30px;
-    }
-
-    .slider {
-      position: relative;
+    /* 導覽列 */
+    nav {
       width: 100%;
-      max-width: 700px;
-      margin: 40px auto;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .slides {
+      background-color: #ffffffcc;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
       display: flex;
-      flex-direction: column;
-      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 2px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      backdrop-filter: blur(10px);
     }
 
-    .slide {
+    nav .logo {
+      font-weight: bold;
+      font-size: 20px;
+      color: #333;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #6c9f68;
+    }
+
+    /* Hero 區塊 */
+    .hero-section {
+      display: flex;
+      height: 100vh;
+      background-color: #dbead5;
+      position: relative;
+      padding-top: 70px;
+    }
+
+    .hero-image {
+  flex: 1;
+  background-image: url('IMG_8576.jpg'); /* 改成你真實照片檔名 */
+  background-size: cover;
+  background-position: center;
+}
+
+
+    .hero-text {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .text-box {
+      background-color: white;
+      padding: 40px;
+      max-width: 400px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      border: 6px solid #fff;
+    }
+
+    .text-box h1 {
+      font-size: 2em;
+      line-height: 1.4;
+      color: #222;
+    }
+
+    .text-box a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+      border-bottom: 1px solid #000;
+    }
+
+    /* ABOUT 區塊 */
+    #about {
+      background-color: #e7e1f2;
+      padding: 100px 30px;
+    }
+
+    #about .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      max-width: 1100px;
+      margin: auto;
+      gap: 40px;
+    }
+
+    #about img {
       width: 100%;
-      flex-shrink: 0;
-      visibility: hidden;
-      height: 0;
-      transition: visibility 0.3s ease, height 0.3s ease;
+      display: block;
+      border-radius: 6px;
+    }
+
+    /* PORTFOLIO 區塊 */
+    #portfolio {
+      background-color: #fff;
+      padding: 80px 30px;
+      text-align: center;
+    }
+
+    #portfolio img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    /* CONTACT 區塊 */
+    #contact {
+      background-color: #fff;
+      padding: 100px 30px;
+      position: relative;
       overflow: hidden;
     }
 
-    .slide.active {
-      visibility: visible;
-      height: auto;
+    #contact .box {
+      max-width: 1000px;
+      margin: auto;
+      border: 1px solid #eee;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
-    .slide img {
+    #contact input, #contact textarea {
       width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      border-bottom: 1px solid #eee;
+      padding: 10px;
+      margin-bottom: 20px;
     }
+    <section id="website" style="background-color:#f6f6f6; padding: 100px 30px; text-align: center;">
+  <h2 style="font-size: 26px; color: #222;">個人網站</h2>
+  <p style="color: #555;">點擊下方圖片查看我設計的個人網站</p>
+  <a href="https://mayeiii130519.github.io/" target="_blank">
+    <img src="your-website-preview.jpg" alt="個人網站預覽圖" style="margin-top: 20px; width: 90%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+  </a>
+</section>
 
-    .caption {
-      padding: 20px;
-      background-color: #fafafa;
-      border-top: 1px solid #ddd;
-      text-align: center;
-      word-break: break-word;
-      line-height: 1.6;
-    }
-
-    .caption h3 {
-      margin-top: 0.5em;
-      margin-bottom: 0.3em;
-    }
-
-    .caption p {
-      margin: 0;
-    }
-
-    .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2rem;
-      background-color: rgba(255,255,255,0.7);
-      border: none;
-      cursor: pointer;
-      padding: 8px 12px;
-      z-index: 2;
-    }
-
-    .prev { left: 10px; }
-    .next { right: 10px; }
-
-    .personal-project {
-      margin-top: 40px;
-      padding: 20px;
-      background-color: #f9f9f9;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    .personal-project h2 {
-      font-size: 1.5em;
-      font-weight: bold;
-      text-align: left;
-      margin: 40px 0 20px 0;
-    }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>張鈺玫的小天地</h1>
-    <div class="profile-image">
-      <img src="IMG_8576.jpg" alt="個人照片" class="my-photo">
-    </div>
-  </header>
+  <nav>
+  <div class="logo">張鈺玫</div>
+  <ul>
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#portfolio">作品集</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+    <li><a href="#website">WEBSITE</a></li>
+  </ul>
+</nav>
 
-  <main>
-    <section>
-      <h2>關於我</h2>
-      <p>大家好！我是May，我就讀台灣科技大學三年級，我個性開朗、活潑，是大家眼中的開心果！</p>
-    </section>
 
-    <section>
-      <h2>興趣愛好</h2>
-      <p>我平時熱愛運動、唱歌與聽音樂，這些都是我生活中不可或缺的一部分。每天晚上，我都會到操場跑步，讓自己放鬆身心。跑步的過程中，我喜歡戴上耳機聽音樂，那是一種專屬於自己的療癒時光。
-
-在眾多音樂中，周杰倫的歌曲陪伴了我無數個夜晚。他是我最喜歡的歌手，他的每一首歌我幾乎都能琅琅上口。無論是輕快的旋律還是深情的歌詞，總能在不同心情下帶來共鳴。運動時搭配音樂，不只讓節奏更輕快，也讓每一次奔跑都充滿力量。</p>
-    </section>
-
-    <section>
-      <h2>作品集</h2>
-      <div class="slider">
-        <div class="slides">
-          <div class="slide active">
-            <img src="作品1.png" alt="作品一">
-            <div class="caption">
-              <h3>臉部偵測</h3>
-              <p>這項實作有點像是我們平常在相機看到的臉部追蹤功能，使用幾個顏色的點追蹤我們的眼睛、鼻子，最困難的是再加上一個點在鼻子上，還有把點換顏色，都非常具有挑戰性。</p>
-            </div>
-          </div>
-          <div class="slide">
-            <img src="作品2.png" alt="作品二">
-            <div class="caption">
-              <h3>手軸彎曲跟舉起</h3>
-              <p>同樣是偵測動作，能夠追蹤我們手軸彎曲的角度以及次數，如果能夠實際應用到運動上面進行次數計算，感覺會相當有趣。</p>
-            </div>
-          </div>
-          <div class="slide">
-            <img src="PHONE.png" alt="作品三">
-            <div class="caption">
-              <h3>物品識別</h3>
-              <p>我們使用了 Google 的 Teachable Machine，讓我們能夠快速地讓 AI 識別物品，以利我們撰寫程式碼。</p>
-            </div>
-          </div>
-        </div>
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
+  <section class="hero-section">
+    <div class="hero-image"></div>
+    <div class="hero-text">
+      <div class="text-box">
+        <h1>May<br>Your day shine Bright</h1>
+        <a href="#about">Get in Touch →</a>
       </div>
+    </div>
+  </section>
 
-      <div class="personal-project">
-        <h2>個人網站</h2>
-        <p style="text-align: center; font-size: 16px;">
-          👉 <a href="https://jaymusic-f6emgdl7cf3vs3pht63sbl.streamlit.app/" target="_blank" style="color: #3366cc; text-decoration: none;">
-            點我前往我的情緒點歌網站 🎧
-          </a>
+  <section id="about">
+    <div class="container">
+      <div style="flex: 1; min-width: 300px;">
+        <div style="position: relative; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+          <img src="IMG_8576.jpg" alt="關於我圖片">
+        </div>
+      </div>
+      <div style="flex: 1; min-width: 300px;">
+        <h2 style="color: #222; font-size: 24px; margin-bottom: 10px;">MY STORY</h2>
+        <p style="line-height: 1.7; color: #444; margin-bottom: 16px;">
+          我平時熱愛運動、唱歌與聽音樂，這些都是我生活中不可或缺的一部分。每天晚上，我都會到操場跑步，讓自己放鬆身心。跑步的過程中，我喜歡戴上耳機聽音樂，那是一種專屬於自己的療癒時光。
+        </p>
+        <p style="line-height: 1.7; color: #444;">
+          在眾多音樂中，周杰倫的歌曲陪伴了我無數個夜晚。他是我最喜歡的歌手，他的每一首歌我幾乎都能琅琅上口。無論是輕快的旋律還是深情的歌詞，總能在不同心情下帶來共鳴。運動時搭配音樂，不只讓節奏更輕快，也讓每一次奔跑都充滿力量。
         </p>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer>
-    <p>© 2024 張鈺玫</p>
-  </footer>
+  <section id="portfolio">
+  <h2 style="font-size: 24px; margin-bottom: 10px;">FOLLOW ME <span style="color:#666">@maygallery</span> →</h2>
 
-  <script>
-    const slides = document.querySelectorAll('.slide');
-    const nextBtn = document.querySelector('.next');
-    const prevBtn = document.querySelector('.prev');
-    let currentSlide = 0;
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 30px;">
+    <div class="card" onclick="toggleDetail('detail1')">
+      <img src="作品1.png" alt="作品1" style="width: 180px; height: 180px; object-fit: cover;">
+      <div id="detail1" class="detail" style="display: none; padding: 10px;">
+        <p>這是作品一的介紹：臉部偵測系統，使用 OpenCV 即時標記五官。</p>
+      </div>
+    </div>
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index) {
-          slide.classList.add('active');
-        }
-      });
+    <div class="card" onclick="toggleDetail('detail2')">
+      <img src="作品2.png" alt="作品2" style="width: 180px; height: 180px; object-fit: cover;">
+      <div id="detail2" class="detail" style="display: none; padding: 10px;">
+        <p>這是作品二：手肘彎曲偵測，能夠計算次數，應用在運動與復健。</p>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleDetail('detail3')">
+      <img src="PHONE.png" alt="作品3" style="width: 180px; height: 180px; object-fit: cover;">
+      <div id="detail3" class="detail" style="display: none; padding: 10px;">
+        <p>這是作品三：物品辨識，透過 Teachable Machine 識別日常物品。</p>
+      </div>
+    </div>
+
+
+  </div>
+  </section>
+
+
+  <div id="project4" class="project-detail" style="display:none; margin-top:40px;">
+    <h3>作品4：情緒點歌系統</h3>
+    <img src="project4-full.jpg" style="width:100%; max-width:600px;">
+    <p>輸入你的心情，我會推薦一首最貼近你的周杰倫歌曲！</p>
+  </div>
+</section>
+
+<!-- ... project3 / project4 類似結構 ... -->
+
+
+  <section id="contact">
+    <div class="box">
+      <div style="background-color: #1a1a1a; padding: 20px 30px;">
+        <h2 style="color: white; font-size: 24px;">GET IN TOUCH</h2>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; padding: 40px; background-color: #fdfdfd;">
+        <div style="flex: 2; min-width: 280px; margin-right: 40px;">
+          <label for="name">姓名：</label><br>
+          <input type="text" id="name" name="name" placeholder="輸入您的姓名"><br>
+          <label for="email">電子信箱：</label><br>
+          <input type="email" id="email" name="email" placeholder="輸入您的信箱"><br>
+          <label for="message">訊息內容：</label><br>
+          <textarea id="message" name="message" rows="5" placeholder="請輸入您的訊息"></textarea>
+        </div>
+        <div style="flex: 1; min-width: 250px;">
+          <h4>服務資訊</h4>
+          <p>📍 台灣科技大學</p>
+          <p>📧 may@example.com</p>
+          <p>🕐 星期一至五 10:00 - 18:00</p>
+          <button style="margin-top: 20px; padding: 10px 20px; background-color: #b5c8a5; color: white; border: none; font-weight: bold; cursor: pointer;">
+            送出表單
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="website" style="background-color:#f6f6f6; padding: 100px 30px; text-align: center;">
+  <h2 style="font-size: 26px; color: #222;">個人網站</h2>
+  <p style="color: #555;">這是我製作的周杰倫情緒點歌系統，點擊圖片即可前往！</p>
+  <a href="https://jaymusic-f6emgdl7cf3vs3pht63sbl.streamlit.app/" target="_blank">
+    <img src="20241207000151M.jpg" alt="個人網站預覽圖" style="margin-top: 20px; width: 90%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+  </a>
+</section>
+
+<script>
+function toggleDetail(id) {
+  const all = document.querySelectorAll('.detail');
+  all.forEach(div => {
+    if (div.id === id) {
+      // toggle 開關
+      div.style.display = (div.style.display === 'block') ? 'none' : 'block';
+    } else {
+      div.style.display = 'none';
     }
+  });
+}
+</script>
 
-    nextBtn.addEventListener('click', () => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    });
-
-    prevBtn.addEventListener('click', () => {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(currentSlide);
-    });
-  </script>
 
 </body>
 </html>
-
 
 
